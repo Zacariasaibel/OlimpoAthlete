@@ -1,26 +1,44 @@
 <section class="programs">
   <div class="programs-header">
-    <p class="programs-label">TRAINING PROGRAMS</p>
-    <h2>Choose your path</h2>
+    <p class="programs-label">TRAINING GOALS</p>
+    <h2>What do you want to achieve?</h2>
     <p class="programs-description">
-      Train with a clear goal and follow a program built around your performance.
+      Choose your main goal so your AI Coach can build a training plan around it.
     </p>
   </div>
 
   <div class="programs-list">
-    <article class="program-card">
+    <article
+      class="program-card"
+      [class.selected]="selectedGoal === 'Strength'"
+      (click)="selectGoal('Strength')"
+    >
       <h3>Strength</h3>
       <p>Build raw strength and improve your performance in the main lifts.</p>
     </article>
 
-    <article class="program-card">
+    <article
+      class="program-card"
+      [class.selected]="selectedGoal === 'Hypertrophy'"
+      (click)="selectGoal('Hypertrophy')"
+    >
       <h3>Hypertrophy</h3>
       <p>Develop muscle mass with structured training and progressive overload.</p>
     </article>
 
-    <article class="program-card">
+    <article
+      class="program-card"
+      [class.selected]="selectedGoal === 'Conditioning'"
+      (click)="selectGoal('Conditioning')"
+    >
       <h3>Conditioning</h3>
       <p>Improve endurance, work capacity and overall athletic performance.</p>
     </article>
   </div>
+
+  @if (selectedGoal) {
+  <p>
+    Selected goal: {{ selectedGoal }}
+  </p>
+}
 </section>

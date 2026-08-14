@@ -1,0 +1,28 @@
+<section class="trainers">
+  <div class="trainers-header">
+    <p class="trainers-label">AI COACHES</p>
+    <h2>Choose your coach</h2>
+    <p class="trainers-description">
+        Each AI Coach specializes in a different training goal.
+    </p>
+  </div>
+
+  <div class="trainers-list">
+    @for (trainer of trainers; track trainer.name) {
+      <article 
+      class="trainer-card" 
+      [class.selected]="selectedCoach === trainer.name"
+      (click)="selectCoach(trainer.name)"
+      >
+        <h3>{{ trainer.name }}</h3>
+        <p>{{ trainer.specialty }}</p>
+      </article>
+    }
+  </div>
+
+  @if (selectedCoach) {
+  <p class="selected-coach">
+    Selected coach: {{ selectedCoach }}
+  </p>
+}
+</section>

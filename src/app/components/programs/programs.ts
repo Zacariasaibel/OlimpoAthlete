@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './programs.html',
   styleUrl: './programs.css',
 })
-export class Programs {}
+export class Programs {
+  selectedGoal = '';
+
+  selectGoal(goal: string) {
+    this.selectedGoal = goal;
+  }
+}
