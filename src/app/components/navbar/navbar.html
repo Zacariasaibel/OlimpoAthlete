@@ -1,16 +1,52 @@
 <nav class="navbar">
 
   <!-- Logo de la aplicación -->
-  <div class="logo">
+  <div
+    class="logo"
+    (click)="requestHome()"
+  >
     OlimpoAthlete
   </div>
 
   <!-- Enlaces de navegación -->
   <ul class="nav-links">
-    <li><a href="#">Goals</a></li>
-    <li><a href="#">Plans</a></li>
-    <li><a href="#">AI Coaches</a></li>
-    <li><a href="#">How It Works</a></li>
+
+    <li>
+      <a
+        href="#goals"
+        (click)="scrollTo('goals')"
+      >
+        Goals
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="#plans"
+        (click)="scrollTo('plans')"
+      >
+        Plans
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="#coaches"
+        (click)="scrollTo('coaches')"
+      >
+        AI Coaches
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="#how-it-works"
+        (click)="scrollTo('how-it-works')"
+      >
+        How It Works
+      </a>
+    </li>
+
   </ul>
 
   <!-- Al hacer clic, avisa a App para abrir Auth -->

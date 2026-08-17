@@ -1,15 +1,31 @@
 <section class="onboarding">
+
+  <!-- Título -->
   <div class="onboarding-header">
-    <p class="onboarding-label">YOUR PROFILE</p>
-    <h2>Tell your coach about yourself</h2>
+
+    <p class="onboarding-label">
+      YOUR PROFILE
+    </p>
+
+    <h2>
+      Tell your coach about yourself
+    </h2>
+
     <p class="onboarding-description">
       Your answers will help your AI Coach build a training plan around your experience and availability.
     </p>
+
   </div>
 
+
+  <!-- Formulario -->
   <form class="onboarding-form">
+
     <div class="form-group">
-      <label for="experience">Training experience</label>
+
+      <label for="experience">
+        Training experience
+      </label>
 
       <select
         id="experience"
@@ -21,10 +37,15 @@
         <option value="intermediate">Intermediate</option>
         <option value="advanced">Advanced</option>
       </select>
+
     </div>
 
+
     <div class="form-group">
-      <label for="days">Training days per week</label>
+
+      <label for="days">
+        Training days per week
+      </label>
 
       <input
         id="days"
@@ -35,10 +56,15 @@
         placeholder="e.g. 4"
         [(ngModel)]="trainingDays"
       >
+
     </div>
 
+
     <div class="form-group">
-      <label for="duration">Session duration</label>
+
+      <label for="duration">
+        Session duration
+      </label>
 
       <select
         id="duration"
@@ -51,10 +77,15 @@
         <option value="60">60 minutes</option>
         <option value="90">90 minutes</option>
       </select>
+
     </div>
 
+
     <div class="form-group">
-      <label for="equipment">Available equipment</label>
+
+      <label for="equipment">
+        Available equipment
+      </label>
 
       <select
         id="equipment"
@@ -66,8 +97,11 @@
         <option value="home">Home equipment</option>
         <option value="bodyweight">Bodyweight only</option>
       </select>
+
     </div>
 
+
+    <!-- Genera el plan -->
     <button
       type="button"
       class="generate-button"
@@ -76,42 +110,54 @@
       GENERATE MY PLAN
     </button>
 
+
+    <!-- Mensaje del formulario -->
     @if (formMessage) {
+
       <p class="form-message">
         {{ formMessage }}
       </p>
+
     }
 
+
+    <!-- Plan generado -->
     @if (planGenerated) {
+
       <div class="generated-plan">
-        <p class="plan-label">YOUR PLAN</p>
-        <h3>Push Day</h3>
+
+        <p class="plan-label">
+          YOUR PLAN
+        </p>
+
+        <h3>
+          Push Day
+        </h3>
 
         <article class="exercise-card">
-          <p class="exercise-number">Exercise 1</p>
-          <h4>Machine Chest Press</h4>
 
-          <p>3 sets × 10 reps</p>
-          <p>Suggested weight: 50 kg</p>
+          <p class="exercise-number">
+            Exercise 1
+          </p>
 
-          <button
-            type="button"
-            (click)="startExercise()"
-          >
-            START EXERCISE
-          </button>
+          <h4>
+            Machine Chest Press
+          </h4>
 
-          @if (exerciseStarted) {
-            <div class="active-set">
-              <p class="set-label">SET 1 OF 3</p>
-              <h4>Machine Chest Press</h4>
+          <p>
+            3 sets × 10 reps
+          </p>
 
-              <p>Target: 10 reps</p>
-              <p>Suggested weight: 50 kg</p>
-            </div>
-          }
+          <p>
+            Suggested weight: 50 kg
+          </p>
+
         </article>
+
       </div>
+
     }
+
   </form>
+
 </section>

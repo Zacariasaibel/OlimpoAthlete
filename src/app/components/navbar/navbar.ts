@@ -17,4 +17,19 @@ export class Navbar {
   requestAuth() {
     this.authRequested.emit();
   }
+
+  // Avisa a App para volver al inicio
+  @Output() homeRequested = new EventEmitter<void>();
+
+  // Vuelve a la Landing Page
+  requestHome() {
+    this.homeRequested.emit();
+  }
+
+  // Desplaza la página hasta una sección
+  scrollTo(sectionId: string) {
+    document
+      .getElementById(sectionId)
+      ?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

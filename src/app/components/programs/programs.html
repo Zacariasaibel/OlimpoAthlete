@@ -1,44 +1,77 @@
-<section class="programs">
+<!-- Sección Training Goals -->
+<section
+  class="programs"
+  id="goals"
+>
+
+  <!-- Título -->
   <div class="programs-header">
-    <p class="programs-label">TRAINING GOALS</p>
-    <h2>What do you want to achieve?</h2>
+    <p class="programs-label">
+      TRAINING GOALS
+    </p>
+
+    <h2>
+      What do you want to achieve?
+    </h2>
+
     <p class="programs-description">
       Choose your main goal so your AI Coach can build a training plan around it.
     </p>
   </div>
 
+
+  <!-- Lista de objetivos -->
   <div class="programs-list">
+
+    <!-- Objetivo Strength -->
     <article
       class="program-card"
       [class.selected]="selectedGoal === 'Strength'"
       (click)="selectGoal('Strength')"
     >
       <h3>Strength</h3>
-      <p>Build raw strength and improve your performance in the main lifts.</p>
+
+      <p>
+        Build raw strength and improve your performance in the main lifts.
+      </p>
     </article>
 
+
+    <!-- Objetivo Hypertrophy -->
     <article
       class="program-card"
       [class.selected]="selectedGoal === 'Hypertrophy'"
       (click)="selectGoal('Hypertrophy')"
     >
       <h3>Hypertrophy</h3>
-      <p>Develop muscle mass with structured training and progressive overload.</p>
+
+      <p>
+        Develop muscle mass with structured training and progressive overload.
+      </p>
     </article>
 
+
+    <!-- Objetivo Conditioning -->
     <article
       class="program-card"
       [class.selected]="selectedGoal === 'Conditioning'"
       (click)="selectGoal('Conditioning')"
     >
       <h3>Conditioning</h3>
-      <p>Improve endurance, work capacity and overall athletic performance.</p>
+
+      <p>
+        Improve endurance, work capacity and overall athletic performance.
+      </p>
     </article>
+
   </div>
 
+
+  <!-- Muestra el objetivo seleccionado -->
   @if (selectedGoal) {
-  <p>
-    Selected goal: {{ selectedGoal }}
-  </p>
-}
+    <p>
+      Selected goal: {{ selectedGoal }}
+    </p>
+  }
+
 </section>

@@ -1,0 +1,64 @@
+/* Sección How It Works */
+.how-it-works {
+  padding: 80px 60px;
+  background-color: #181818;
+  color: #f5f5f5;
+}
+
+/* Encabezado */
+.how-it-works-header {
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+
+/* Etiqueta */
+.how-it-works-label {
+  color: #b87333;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+/* Título */
+.how-it-works-header h2 {
+  font-size: 2.8rem;
+  margin: 0 0 16px;
+}
+
+/* Descripción */
+.how-it-works-description {
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+/* Lista de pasos */
+.steps {
+  display: flex;
+  gap: 24px;
+}
+
+/* Tarjeta de paso */
+.step-card {
+  flex: 1;
+  padding: 30px;
+  background-color: #111111;
+  border-top: 3px solid #b87333;
+}
+
+/* Número del paso */
+.step-number {
+  color: #b87333;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* Título del paso */
+.step-card h3 {
+  font-size: 1.5rem;
+}
+
+/* Texto del paso */
+.step-card p {
+  color: #cccccc;
+  line-height: 1.6;
+}
