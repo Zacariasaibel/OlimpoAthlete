@@ -1,13 +1,30 @@
 <section class="hero">
+
   <div class="hero-content">
-    <p class="hero-label">OLIMPO ATHLETE</p>
 
-    <h1>Train like a god. Earn your place on Olympus.</h1>
+    <!-- Nombre de la app -->
+    <p class="hero-label">
+      OLIMPO ATHLETE
+    </p>
 
+    <!-- Título principal -->
+    <h1>
+      Train like a god. Earn your place on Olympus.
+    </h1>
+
+    <!-- Descripción -->
     <p class="hero-description">
       Build strength, improve performance and become the strongest version of yourself.
     </p>
 
-    <button class="hero-button">START TRAINING</button>
+    <!-- Abre Login/Register -->
+    <button
+      class="hero-button"
+      (click)="requestAuth()"
+    >
+      START TRAINING
+    </button>
+
   </div>
+
 </section>

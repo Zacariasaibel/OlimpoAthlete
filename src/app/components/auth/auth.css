@@ -1,0 +1,58 @@
+/* Sección Login/Register */
+.auth {
+  padding: 80px 60px;
+  background-color: #181818;
+  color: #f5f5f5;
+}
+
+/* Tarjeta principal */
+.auth-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 32px;
+  background-color: #111111;
+}
+
+/* Texto naranja pequeño */
+.auth-label {
+  color: #b87333;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Campos */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.form-group input {
+  padding: 14px;
+  background-color: #181818;
+  color: #f5f5f5;
+  border: 1px solid #444444;
+  font-size: 1rem;
+}
+
+/* Botones */
+.auth-card button {
+  padding: 12px 24px;
+  background-color: #b87333;
+  color: #111111;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-card button:hover {
+  background-color: #9a5f2a;
+}
+
+/* Separa Login de Register */
+.login-section {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #333333;
+}

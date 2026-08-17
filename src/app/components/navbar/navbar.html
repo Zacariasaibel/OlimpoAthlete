@@ -1,6 +1,11 @@
 <nav class="navbar">
-  <div class="logo">OlimpoAthlete</div>
 
+  <!-- Logo de la aplicación -->
+  <div class="logo">
+    OlimpoAthlete
+  </div>
+
+  <!-- Enlaces de navegación -->
   <ul class="nav-links">
     <li><a href="#">Goals</a></li>
     <li><a href="#">Plans</a></li>
@@ -8,5 +13,12 @@
     <li><a href="#">How It Works</a></li>
   </ul>
 
-  <button class="join-button">Get Started</button>
+  <!-- Al hacer clic, avisa a App para abrir Auth -->
+  <button
+    class="join-button"
+    (click)="requestAuth()"
+  >
+    GET STARTED
+  </button>
+
 </nav>

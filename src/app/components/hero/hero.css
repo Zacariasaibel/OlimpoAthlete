@@ -32,6 +32,7 @@
   color: #cccccc;
 }
 
+/* Botón principal */
 .hero-button {
   padding: 14px 28px;
   background-color: #b87333;
@@ -42,6 +43,7 @@
   transition: background-color 0.3s;
 }
 
+/* Color al pasar el ratón */
 .hero-button:hover {
   background-color: #9a5f2a;
 }

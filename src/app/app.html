@@ -1,5 +1,37 @@
-<app-navbar></app-navbar>
-<app-hero></app-hero>
-<app-programs></app-programs>
-<app-membership></app-membership>
-<app-trainers></app-trainers>
+<!-- Navbar siempre visible -->
+<app-navbar
+  (authRequested)="openAuth()"
+></app-navbar>
+
+<!-- LOGIN / REGISTER -->
+@if (showAuth) {
+  <!-- authSuccess avisa cuando el usuario entra correctamente -->
+  <app-auth
+    (authSuccess)="handleAuthSuccess()"
+  ></app-auth>
+}
+
+<!-- CREATE PROFILE -->
+@else if (showOnboarding) {
+  <!-- Mensaje de acceso correcto -->
+  <p class="auth-success-message">
+    {{ authMessage }}
+  </p>
+
+  <app-onboarding></app-onboarding>
+}
+
+<!-- LANDING PAGE -->
+@else {
+
+  <app-hero
+    (authRequested)="openAuth()"
+  ></app-hero>
+
+  <app-programs></app-programs>
+
+  <app-membership></app-membership>
+
+  <app-trainers></app-trainers>
+
+}
