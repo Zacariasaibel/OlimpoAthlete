@@ -1,8 +1,10 @@
 /* Sección Login/Register */
 .auth {
+  min-height: 100vh;
   padding: 80px 60px;
   background-color: #181818;
   color: #f5f5f5;
+  box-sizing: border-box;
 }
 
 /* Tarjeta principal */
@@ -13,14 +15,14 @@
   background-color: #111111;
 }
 
-/* Texto naranja pequeño */
+/* Etiqueta */
 .auth-label {
   color: #b87333;
   font-weight: bold;
   letter-spacing: 2px;
 }
 
-/* Campos */
+/* Grupo de formulario */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -28,6 +30,7 @@
   margin-bottom: 18px;
 }
 
+/* Campos */
 .form-group input {
   padding: 14px;
   background-color: #181818;
@@ -46,6 +49,7 @@
   cursor: pointer;
 }
 
+/* Color al pasar el ratón */
 .auth-card button:hover {
   background-color: #9a5f2a;
 }
@@ -55,4 +59,29 @@
   margin-top: 40px;
   padding-top: 30px;
   border-top: 1px solid #333333;
+}
+
+/* Móvil */
+@media (max-width: 800px) {
+
+  /* Reduce el espacio */
+  .auth {
+    padding: 50px 20px;
+  }
+
+  /* Reduce la tarjeta */
+  .auth-card {
+    padding: 24px;
+  }
+
+  /* Campos ocupan todo el ancho */
+  .form-group input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Botones ocupan todo el ancho */
+  .auth-card button {
+    width: 100%;
+  }
 }

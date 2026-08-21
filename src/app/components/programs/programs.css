@@ -1,14 +1,17 @@
+/* Sección Training Goals */
 .programs {
   padding: 80px 60px;
   background-color: #111111;
   color: #f5f5f5;
 }
 
+/* Encabezado */
 .programs-header {
   max-width: 650px;
   margin-bottom: 50px;
 }
 
+/* Etiqueta */
 .programs-label {
   color: #b87333;
   font-weight: bold;
@@ -16,21 +19,25 @@
   margin-bottom: 12px;
 }
 
+/* Título */
 .programs-header h2 {
   font-size: 2.8rem;
   margin: 0 0 16px;
 }
 
+/* Descripción */
 .programs-description {
   color: #cccccc;
   line-height: 1.6;
 }
 
+/* Lista de objetivos */
 .programs-list {
   display: flex;
   gap: 24px;
 }
 
+/* Tarjeta */
 .program-card {
   flex: 1;
   padding: 30px;
@@ -40,22 +47,45 @@
   cursor: pointer;
 }
 
+/* Título de tarjeta */
 .program-card h3 {
   margin-top: 0;
   font-size: 1.5rem;
 }
 
+/* Texto de tarjeta */
 .program-card p {
   color: #cccccc;
   line-height: 1.6;
 }
 
+/* Efecto al pasar el ratón */
 .program-card:hover {
   transform: translateY(-6px);
 }
 
+/* Objetivo seleccionado */
 .program-card.selected {
   border: 2px solid #b87333;
   background-color: #242424;
   transform: translateY(-6px);
+}
+
+/* Móvil */
+@media (max-width: 800px) {
+
+  /* Reduce el espacio */
+  .programs {
+    padding: 60px 20px;
+  }
+
+  /* Reduce el título */
+  .programs-header h2 {
+    font-size: 2rem;
+  }
+
+  /* Coloca las tarjetas en vertical */
+  .programs-list {
+    flex-direction: column;
+  }
 }

@@ -62,3 +62,22 @@
   color: #cccccc;
   line-height: 1.6;
 }
+
+/* Móvil */
+@media (max-width: 800px) {
+
+  /* Reduce el espacio */
+  .how-it-works {
+    padding: 60px 20px;
+  }
+
+  /* Reduce el título */
+  .how-it-works-header h2 {
+    font-size: 2rem;
+  }
+
+  /* Coloca los pasos en vertical */
+  .steps {
+    flex-direction: column;
+  }
+}

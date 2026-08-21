@@ -46,10 +46,12 @@
 
 /* Campos */
 .payment-form input {
+  width: 100%;
   padding: 14px;
   background-color: #181818;
   color: #f5f5f5;
   border: 1px solid #444444;
+  box-sizing: border-box;
 }
 
 /* Fila Expiry + CVV */
@@ -77,9 +79,42 @@
   cursor: pointer;
 }
 
+/* Mensaje del pago */
+.payment-message {
+  margin-top: 24px;
+  padding: 14px;
+  background-color: #242424;
+  border-left: 3px solid #b87333;
+  color: #cccccc;
+}
+
 /* Aviso de demo */
 .demo-message {
   margin-top: 24px;
   color: #999999;
   font-size: 0.9rem;
+}
+
+/* Móvil */
+@media (max-width: 800px) {
+
+  /* Reduce el espacio */
+  .checkout {
+    padding: 50px 20px;
+  }
+
+  /* Reduce la tarjeta */
+  .checkout-card {
+    padding: 24px;
+  }
+
+  /* Coloca Expiry y CVV en vertical */
+  .payment-row {
+    flex-direction: column;
+  }
+
+  /* Botón ocupa todo el ancho */
+  .payment-form button {
+    width: 100%;
+  }
 }

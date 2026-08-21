@@ -7,7 +7,7 @@
   background-color: #111111;
   color: #f5f5f5;
 
-  /* Mantiene la Navbar visible al hacer scroll */
+  /* Mantiene la Navbar visible */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -56,4 +56,29 @@
 /* Color al pasar el ratón */
 .join-button:hover {
   background-color: #9a5f2a;
+}
+
+/* Móvil */
+@media (max-width: 800px) {
+
+  /* Reduce el espacio */
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  /* Oculta los enlaces */
+  .nav-links {
+    display: none;
+  }
+
+  /* Reduce el logo */
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  /* Reduce el botón */
+  .join-button {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
 }

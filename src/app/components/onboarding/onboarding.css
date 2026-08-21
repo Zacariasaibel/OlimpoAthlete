@@ -202,3 +202,45 @@
   cursor: pointer;
   color: #b87333;
 }
+
+
+/* Móvil */
+@media (max-width: 800px) {
+
+  /* Reduce el espacio */
+  .onboarding {
+    padding: 60px 20px;
+  }
+
+  /* Reduce el título */
+  .onboarding-header h2 {
+    font-size: 2rem;
+  }
+
+  /* Coloca los coaches en vertical */
+  .coach-list {
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  /* Formulario en una columna */
+  .onboarding-form {
+    grid-template-columns: 1fr;
+  }
+
+  /* El mensaje ocupa toda la columna */
+  .form-message {
+    grid-column: 1;
+  }
+
+  /* El plan ocupa toda la columna */
+  .generated-plan {
+    grid-column: 1;
+    padding: 20px;
+  }
+
+  /* Reduce el espacio de cada día */
+  .exercise-card {
+    padding: 20px;
+  }
+}

@@ -1,14 +1,17 @@
+/* Sección AI Coaches */
 .trainers {
   padding: 80px 60px;
   background-color: #111111;
   color: #f5f5f5;
 }
 
+/* Encabezado */
 .trainers-header {
   max-width: 650px;
   margin-bottom: 50px;
 }
 
+/* Etiqueta */
 .trainers-label {
   color: #b87333;
   font-weight: bold;
@@ -16,21 +19,25 @@
   margin-bottom: 12px;
 }
 
+/* Título */
 .trainers-header h2 {
   font-size: 2.8rem;
   margin: 0 0 16px;
 }
 
+/* Descripción */
 .trainers-description {
   color: #cccccc;
   line-height: 1.6;
 }
 
+/* Lista de coaches */
 .trainers-list {
   display: flex;
   gap: 24px;
 }
 
+/* Tarjeta del coach */
 .trainer-card {
   flex: 1;
   padding: 30px;
@@ -40,22 +47,45 @@
   cursor: pointer;
 }
 
+/* Título del coach */
 .trainer-card h3 {
   margin-top: 0;
   font-size: 1.6rem;
 }
 
+/* Texto del coach */
 .trainer-card p {
   color: #cccccc;
   line-height: 1.6;
 }
 
+/* Efecto al pasar el ratón */
 .trainer-card:hover {
   transform: translateY(-6px);
 }
 
+/* Coach seleccionado */
 .trainer-card.selected {
   border: 2px solid #b87333;
   background-color: #242424;
   transform: translateY(-6px);
+}
+
+/* Móvil */
+@media (max-width: 800px) {
+
+  /* Reduce el espacio */
+  .trainers {
+    padding: 60px 20px;
+  }
+
+  /* Reduce el título */
+  .trainers-header h2 {
+    font-size: 2rem;
+  }
+
+  /* Coloca los coaches en vertical */
+  .trainers-list {
+    flex-direction: column;
+  }
 }
