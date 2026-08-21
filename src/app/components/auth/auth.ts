@@ -1,7 +1,7 @@
 // Herramientas de Angular
 import { Component, Output, EventEmitter } from '@angular/core';
 
-// Permite usar [(ngModel)] en formularios
+// Permite usar [(ngModel)]
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 
 export class Auth {
 
-  // Datos para crear una cuenta
+  // Datos del registro
   name = '';
   email = '';
   password = '';
@@ -21,30 +21,30 @@ export class Auth {
   // Mensaje del registro
   registerMessage = '';
 
-  // Datos para iniciar sesión
+  // Datos del login
   loginEmail = '';
   loginPassword = '';
 
   // Mensaje del login
   loginMessage = '';
 
-  // Avisa a App cuando el usuario entra correctamente
+  // Avisa a App cuando el acceso es correcto
   @Output() authSuccess = new EventEmitter<void>();
 
 
-  // Crear una cuenta
+  // Crea una cuenta
   register() {
 
     if (this.name && this.email && this.password) {
 
-      // Objeto con los datos del usuario
+      // Guarda los datos del usuario
       const user = {
         name: this.name,
         email: this.email,
         password: this.password
       };
 
-      // Guarda el usuario en el navegador
+      // Guarda el usuario en localStorage
       localStorage.setItem(
         'olimpoUser',
         JSON.stringify(user)
@@ -52,8 +52,10 @@ export class Auth {
 
       this.registerMessage = 'Account created successfully.';
 
-      // Avisa a App
-      this.authSuccess.emit();
+      // Espera antes de cambiar de pantalla
+      setTimeout(() => {
+        this.authSuccess.emit();
+      }, 1200);
 
     } else {
 
@@ -62,36 +64,41 @@ export class Auth {
   }
 
 
-  // Iniciar sesión
+  // Inicia sesión
   login() {
 
     // Recupera el usuario guardado
     const savedUser = localStorage.getItem('olimpoUser');
 
-    if (savedUser) {
+    if (!savedUser) {
 
-      // Convierte el texto guardado otra vez en objeto
-      const user = JSON.parse(savedUser);
-
-      // Comprueba email y contraseña
-      if (
-        this.loginEmail === user.email &&
-        this.loginPassword === user.password
-      ) {
-
-        this.loginMessage = `Welcome, ${user.name}!`;
-
-        // Avisa a App
-        this.authSuccess.emit();
-
-      } else {
-
-        this.loginMessage = 'Incorrect email or password.';
-      }
-
-    } else {
-
-      this.loginMessage = 'No account found.';
+      this.loginMessage = 'Account not found.';
+      return;
     }
+
+    // Convierte el texto en objeto
+    const user = JSON.parse(savedUser);
+
+    // Comprueba el email
+    if (this.loginEmail !== user.email) {
+
+      this.loginMessage = 'Account not found.';
+      return;
+    }
+
+    // Comprueba la contraseña
+    if (this.loginPassword !== user.password) {
+
+      this.loginMessage = 'Incorrect password.';
+      return;
+    }
+
+    // Login correcto
+    this.loginMessage = 'Access successful.';
+
+    // Espera antes de cambiar de pantalla
+    setTimeout(() => {
+      this.authSuccess.emit();
+    }, 1200);
   }
 }

@@ -43,14 +43,13 @@ export class App {
   // false = Profile oculto / true = Profile visible
   showOnboarding = false;
 
-  // Mensaje de acceso correcto
-  authMessage = '';
 
   // Abre Login/Register
   openAuth() {
     this.showAuth = true;
     this.showOnboarding = false;
   }
+
 
   // Vuelve a la Landing Page
   goHome() {
@@ -63,15 +62,14 @@ export class App {
     });
   }
 
+
   // Se ejecuta cuando Login/Register es correcto
   handleAuthSuccess() {
-  
+
     // Oculta Login/Register
     this.showAuth = false;
 
     // Muestra Create Profile
     this.showOnboarding = true;
-
-    this.authMessage = 'Access successful.';
   }
 }

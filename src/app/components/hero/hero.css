@@ -1,17 +1,39 @@
+/* Sección Hero */
 .hero {
-  min-height: 75vh;
+  position: relative;
   display: flex;
   align-items: center;
-  padding: 60px;
-  background-color: #181818;
+  min-height: 72vh;
+  padding: 70px 60px;
   color: #f5f5f5;
   box-sizing: border-box;
+  overflow: hidden;
+
+  /* Imagen integrada con degradado */
+  background:
+    linear-gradient(
+      90deg,
+      #181818 0%,
+      #181818 32%,
+      rgba(24, 24, 24, 0.95) 42%,
+      rgba(24, 24, 24, 0.55) 62%,
+      rgba(24, 24, 24, 0.15) 100%
+    ),
+    url('/images/hero-athlete.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+/* Contenido de texto */
 .hero-content {
-  max-width: 750px;
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
 }
 
+/* Nombre de la app */
 .hero-label {
   color: #b87333;
   font-weight: bold;
@@ -19,13 +41,16 @@
   margin-bottom: 16px;
 }
 
+/* Título principal */
 .hero h1 {
   font-size: 4rem;
   line-height: 1.1;
   margin: 0 0 24px;
 }
 
+/* Descripción */
 .hero-description {
+  max-width: 600px;
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 32px;
@@ -34,16 +59,53 @@
 
 /* Botón principal */
 .hero-button {
-  padding: 14px 28px;
+  padding: 16px 32px;
   background-color: #b87333;
   color: #111111;
   border: none;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: 0.3s;
 }
 
-/* Color al pasar el ratón */
+/* Efecto del botón */
 .hero-button:hover {
-  background-color: #9a5f2a;
+  background-color: #d08a45;
+  transform: translateY(-2px);
+}
+
+/* Pantallas medianas */
+@media (max-width: 1100px) {
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .hero-content {
+    max-width: 600px;
+  }
+}
+
+/* Móvil */
+@media (max-width: 900px) {
+
+  .hero {
+    min-height: 70vh;
+    padding: 60px 30px;
+
+    /* Oscurece más la imagen para leer el texto */
+    background:
+      linear-gradient(
+        rgba(24, 24, 24, 0.8),
+        rgba(24, 24, 24, 0.92)
+      ),
+      url('/images/hero-athlete.png');
+
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
 }

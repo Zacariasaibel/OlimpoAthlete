@@ -9,9 +9,11 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 
 export class Hero {
-  // Envía un evento hacia App
+
+  // Output = avisa al padre de que el usuario quiere entrar
   @Output() authRequested = new EventEmitter<void>();
-  // Avisa a App para abrir Login/Register
+
+  // Envía el evento al componente padre
   requestAuth() {
     this.authRequested.emit();
   }
