@@ -1,0 +1,117 @@
+<!-- Pantalla de pago -->
+<section class="checkout">
+
+  <div class="checkout-card">
+
+    <!-- Título -->
+    <p class="checkout-label">
+      CHECKOUT
+    </p>
+
+    <h2>
+      Complete your subscription
+    </h2>
+
+
+    <!-- Plan seleccionado -->
+    <div class="plan-summary">
+
+      <p>
+        Selected plan
+      </p>
+
+      <h3>
+        {{ planName }}
+      </h3>
+
+      <p class="price">
+        {{ planPrice }}
+      </p>
+
+    </div>
+
+
+    <!-- Datos de pago -->
+    <div class="payment-form">
+
+      <label for="cardName">
+        Cardholder name
+      </label>
+
+      <input
+        id="cardName"
+        type="text"
+        placeholder="Your name"
+      >
+
+
+      <label for="cardNumber">
+        Card number
+      </label>
+
+      <input
+        id="cardNumber"
+        type="text"
+        placeholder="0000 0000 0000 0000"
+      >
+
+
+      <div class="payment-row">
+
+        <div>
+          <label for="expiry">
+            Expiry
+          </label>
+
+          <input
+            id="expiry"
+            type="text"
+            placeholder="MM/YY"
+          >
+        </div>
+
+
+        <div>
+          <label for="cvv">
+            CVV
+          </label>
+
+          <input
+            id="cvv"
+            type="text"
+            placeholder="123"
+          >
+        </div>
+
+      </div>
+
+
+      <!-- Simula el pago -->
+      <button
+        type="button"
+        (click)="completePayment()"
+      >
+        COMPLETE PAYMENT
+      </button>
+
+    </div>
+
+
+    <!-- Mensaje del pago -->
+    @if (paymentMessage) {
+
+      <p class="payment-message">
+        {{ paymentMessage }}
+      </p>
+
+    }
+
+
+    <!-- Aviso de demo -->
+    <p class="demo-message">
+      Demo checkout — no real payment will be processed.
+    </p>
+
+  </div>
+
+</section>

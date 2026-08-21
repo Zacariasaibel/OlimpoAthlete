@@ -6,6 +6,7 @@
 
   <!-- Título -->
   <div class="membership-header">
+
     <p class="membership-label">
       PLANS
     </p>
@@ -17,6 +18,7 @@
     <p class="membership-description">
       Unlock more personalized training as you progress.
     </p>
+
   </div>
 
 
@@ -25,49 +27,79 @@
 
     <!-- Plan Warrior -->
     <article class="membership-card">
-      <h3>Warrior</h3>
 
-      <p class="price">Free</p>
+      <h3>
+        Warrior
+      </h3>
 
-      <p>
-        Basic workout plans and progress tracking.
+      <p class="price">
+        Free
       </p>
 
-      <button>
+      <p>
+        Basic personalized training plan adapted to your profile.
+      </p>
+
+      <!-- Selecciona Warrior -->
+      <button
+        type="button"
+        (click)="choosePlan('Warrior', 'Free')"
+      >
         CHOOSE PLAN
       </button>
+
     </article>
 
 
     <!-- Plan Hero -->
     <article class="membership-card">
-      <h3>Hero</h3>
 
-      <p class="price">9.99€ / month</p>
+      <h3>
+        Hero
+      </h3>
 
-      <p>
-        Personalized training plans created by your AI Coach.
+      <p class="price">
+        9.99€ / month
       </p>
 
-      <button>
+      <p>
+        Detailed training plans, progress tracking and workout history.
+      </p>
+
+      <!-- Selecciona Hero -->
+      <button
+        type="button"
+        (click)="choosePlan('Hero', '9.99€ / month')"
+      >
         CHOOSE PLAN
       </button>
+
     </article>
 
 
     <!-- Plan Olympian -->
     <article class="membership-card featured">
-      <h3>Olympian</h3>
 
-      <p class="price">19.99€ / month</p>
+      <h3>
+        Olympian
+      </h3>
 
-      <p>
-        Full AI coaching, advanced progress insights and unlimited plan adjustments.
+      <p class="price">
+        19.99€ / month
       </p>
 
-      <button>
+      <p>
+        Full AI coaching, advanced progress analysis and unlimited plan adjustments.
+      </p>
+
+      <!-- Selecciona Olympian -->
+      <button
+        type="button"
+        (click)="choosePlan('Olympian', '19.99€ / month')"
+      >
         CHOOSE PLAN
       </button>
+
     </article>
 
   </div>

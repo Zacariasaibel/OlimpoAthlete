@@ -4,74 +4,114 @@
   <!-- Tarjeta principal -->
   <div class="auth-card">
 
+
     <!-- REGISTRO -->
-    <p class="auth-label">CREATE ACCOUNT</p>
-    <h2>Join OlimpoAthlete</h2>
+    <form (ngSubmit)="register()">
 
-    <!-- Campo nombre -->
-    <div class="form-group">
-      <label for="name">Name</label>
-
-      <!-- ngModel conecta input ↔ variable name -->
-      <input
-        id="name"
-        name="name"
-        type="text"
-        placeholder="Your name"
-        [(ngModel)]="name"
-      >
-    </div>
-
-    <!-- Campo email -->
-    <div class="form-group">
-      <label for="email">Email</label>
-
-      <input
-        id="email"
-        name="email"
-        type="email"
-        placeholder="you@example.com"
-        [(ngModel)]="email"
-      >
-    </div>
-
-    <!-- Campo contraseña -->
-    <div class="form-group">
-      <label for="password">Password</label>
-
-      <input
-        id="password"
-        name="password"
-        type="password"
-        placeholder="Create a password"
-        [(ngModel)]="password"
-      >
-    </div>
-
-    <!-- Ejecuta register() al hacer clic -->
-    <button
-      type="button"
-      (click)="register()"
-    >
-      CREATE ACCOUNT
-    </button>
-
-    <!-- Muestra mensaje si existe -->
-    @if (registerMessage) {
-      <p>
-        {{ registerMessage }}
+      <p class="auth-label">
+        CREATE ACCOUNT
       </p>
-    }
+
+      <h2>
+        Join OlimpoAthlete
+      </h2>
+
+
+      <!-- Campo nombre -->
+      <div class="form-group">
+
+        <label for="name">
+          Name
+        </label>
+
+        <!-- ngModel conecta input ↔ variable name -->
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Your name"
+          [(ngModel)]="name"
+        >
+
+      </div>
+
+
+      <!-- Campo email -->
+      <div class="form-group">
+
+        <label for="email">
+          Email
+        </label>
+
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          [(ngModel)]="email"
+        >
+
+      </div>
+
+
+      <!-- Campo contraseña -->
+      <div class="form-group">
+
+        <label for="password">
+          Password
+        </label>
+
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Create a password"
+          [(ngModel)]="password"
+        >
+
+      </div>
+
+
+      <!-- Ejecuta register() -->
+      <button type="submit">
+        CREATE ACCOUNT
+      </button>
+
+
+      <!-- Muestra mensaje si existe -->
+      @if (registerMessage) {
+
+        <p>
+          {{ registerMessage }}
+        </p>
+
+      }
+
+    </form>
+
 
 
     <!-- LOGIN -->
-    <div class="login-section">
-      <p class="auth-label">LOGIN</p>
-      <h2>Welcome back</h2>
+    <form
+      class="login-section"
+      (ngSubmit)="login()"
+    >
 
-      <!-- Email para iniciar sesión -->
+      <p class="auth-label">
+        LOGIN
+      </p>
+
+      <h2>
+        Welcome back
+      </h2>
+
+
+      <!-- Email del login -->
       <div class="form-group">
-        <label for="loginEmail">Email</label>
+
+        <label for="loginEmail">
+          Email
+        </label>
 
         <input
           id="loginEmail"
@@ -80,11 +120,16 @@
           placeholder="you@example.com"
           [(ngModel)]="loginEmail"
         >
+
       </div>
 
-      <!-- Contraseña para iniciar sesión -->
+
+      <!-- Contraseña del login -->
       <div class="form-group">
-        <label for="loginPassword">Password</label>
+
+        <label for="loginPassword">
+          Password
+        </label>
 
         <input
           id="loginPassword"
@@ -93,23 +138,27 @@
           placeholder="Your password"
           [(ngModel)]="loginPassword"
         >
+
       </div>
 
+
       <!-- Ejecuta login() -->
-      <button
-        type="button"
-        (click)="login()"
-      >
+      <button type="submit">
         LOGIN
       </button>
 
+
       <!-- Muestra resultado del login -->
       @if (loginMessage) {
+
         <p>
           {{ loginMessage }}
         </p>
+
       }
-    </div>
+
+    </form>
 
   </div>
+
 </section>

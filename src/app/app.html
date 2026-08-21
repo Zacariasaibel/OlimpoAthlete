@@ -4,6 +4,7 @@
   (homeRequested)="goHome()"
 ></app-navbar>
 
+
 <!-- LOGIN / REGISTER -->
 @if (showAuth) {
 
@@ -14,12 +15,26 @@
 
 }
 
+
+<!-- CHECKOUT -->
+@else if (showCheckout) {
+
+  <!-- Envía el plan seleccionado a Checkout -->
+  <app-checkout
+    [planName]="selectedPlanName"
+    [planPrice]="selectedPlanPrice"
+  ></app-checkout>
+
+}
+
+
 <!-- CREATE PROFILE -->
 @else if (showOnboarding) {
 
   <app-onboarding></app-onboarding>
 
 }
+
 
 <!-- LANDING PAGE -->
 @else {
@@ -30,7 +45,10 @@
 
   <app-programs></app-programs>
 
-  <app-membership></app-membership>
+  <!-- Recibe el plan seleccionado -->
+  <app-membership
+    (planSelected)="handlePlanSelected($event)"
+  ></app-membership>
 
   <app-trainers></app-trainers>
 

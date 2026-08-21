@@ -10,6 +10,7 @@ import { Trainers } from './components/trainers/trainers';
 import { Onboarding } from './components/onboarding/onboarding';
 import { Auth } from './components/auth/auth';
 import { HowItWorks } from './components/how-it-works/how-it-works';
+import { Checkout } from './components/checkout/checkout';
 
 
 @Component({
@@ -26,7 +27,8 @@ import { HowItWorks } from './components/how-it-works/how-it-works';
     Trainers,
     Onboarding,
     Auth,
-    HowItWorks
+    HowItWorks,
+    Checkout
   ],
 
   // HTML y CSS de App
@@ -43,11 +45,26 @@ export class App {
   // false = Profile oculto / true = Profile visible
   showOnboarding = false;
 
+  // false = Checkout oculto / true = Checkout visible
+  showCheckout = false;
+
+  // Guarda si el usuario ha iniciado sesión
+  isLoggedIn = false;
+
+  // Guarda el plan seleccionado
+  selectedPlanName = '';
+  selectedPlanPrice = '';
+
+  // Decide si después del Login abre Checkout
+  checkoutAfterLogin = false;
+
 
   // Abre Login/Register
   openAuth() {
     this.showAuth = true;
     this.showOnboarding = false;
+    this.showCheckout = false;
+    this.checkoutAfterLogin = false;
   }
 
 
@@ -55,6 +72,8 @@ export class App {
   goHome() {
     this.showAuth = false;
     this.showOnboarding = false;
+    this.showCheckout = false;
+    this.checkoutAfterLogin = false;
 
     window.scrollTo({
       top: 0,
@@ -66,10 +85,62 @@ export class App {
   // Se ejecuta cuando Login/Register es correcto
   handleAuthSuccess() {
 
+    // Guarda el estado del login
+    this.isLoggedIn = true;
+
     // Oculta Login/Register
     this.showAuth = false;
 
-    // Muestra Create Profile
-    this.showOnboarding = true;
+    // Abre Checkout si eligió un plan de pago
+    if (this.checkoutAfterLogin) {
+      this.showCheckout = true;
+      this.showOnboarding = false;
+    } else {
+
+      // Muestra Coach/Profile
+      this.showCheckout = false;
+      this.showOnboarding = true;
+    }
+  }
+
+
+  // Recibe el plan seleccionado
+  handlePlanSelected(plan: { name: string; price: string }) {
+
+    // Guarda el plan
+    this.selectedPlanName = plan.name;
+    this.selectedPlanPrice = plan.price;
+
+    // Plan gratuito
+    if (plan.name === 'Warrior') {
+
+      this.checkoutAfterLogin = false;
+
+      if (this.isLoggedIn) {
+        this.showAuth = false;
+        this.showCheckout = false;
+        this.showOnboarding = true;
+      } else {
+        this.showAuth = true;
+        this.showCheckout = false;
+        this.showOnboarding = false;
+      }
+
+      return;
+    }
+
+
+    // Plan de pago
+    this.checkoutAfterLogin = true;
+
+    if (this.isLoggedIn) {
+      this.showAuth = false;
+      this.showOnboarding = false;
+      this.showCheckout = true;
+    } else {
+      this.showAuth = true;
+      this.showOnboarding = false;
+      this.showCheckout = false;
+    }
   }
 }

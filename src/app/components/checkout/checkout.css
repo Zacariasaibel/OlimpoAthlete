@@ -1,0 +1,85 @@
+/* Pantalla Checkout */
+.checkout {
+  min-height: 100vh;
+  padding: 80px 60px;
+  background-color: #181818;
+  color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+/* Tarjeta principal */
+.checkout-card {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #111111;
+}
+
+/* Etiqueta */
+.checkout-label {
+  color: #b87333;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Resumen del plan */
+.plan-summary {
+  margin: 30px 0;
+  padding: 24px;
+  background-color: #1b1b1b;
+  border-left: 3px solid #b87333;
+}
+
+/* Precio */
+.price {
+  color: #b87333;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Formulario */
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Campos */
+.payment-form input {
+  padding: 14px;
+  background-color: #181818;
+  color: #f5f5f5;
+  border: 1px solid #444444;
+}
+
+/* Fila Expiry + CVV */
+.payment-row {
+  display: flex;
+  gap: 20px;
+}
+
+/* Columnas de pago */
+.payment-row div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Botón */
+.payment-form button {
+  margin-top: 20px;
+  padding: 14px 28px;
+  background-color: #b87333;
+  color: #111111;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Aviso de demo */
+.demo-message {
+  margin-top: 24px;
+  color: #999999;
+  font-size: 0.9rem;
+}

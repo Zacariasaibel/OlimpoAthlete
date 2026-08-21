@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+// Herramientas de Angular
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-membership',
@@ -6,4 +7,20 @@ import { Component } from '@angular/core';
   templateUrl: './membership.html',
   styleUrl: './membership.css',
 })
-export class Membership {}
+
+export class Membership {
+
+  // Envía el plan seleccionado a App
+  @Output() planSelected = new EventEmitter<{
+    name: string;
+    price: string;
+  }>();
+
+  // Selecciona un plan
+  choosePlan(name: string, price: string) {
+    this.planSelected.emit({
+      name: name,
+      price: price
+    });
+  }
+}
