@@ -10,20 +10,16 @@ import { FormsModule } from '@angular/forms';
 
 export class Onboarding {
 
-  // Coach seleccionado
   selectedCoach = '';
 
-  // Datos del perfil
   experience = '';
   trainingDays: number | null = null;
   duration = '';
   equipment = '';
 
-  // Mensaje del formulario
   formMessage = '';
-
-  // Muestra el plan generado
   planGenerated = false;
+
 
   // Guarda la rutina generada
   trainingPlan: {
@@ -38,7 +34,7 @@ export class Onboarding {
   }[] = [];
 
 
-  // Biblioteca de ejercicios
+  // Ejercicios organizados por equipamiento y grupo muscular
   exerciseLibrary: Record<string, Record<string, { name: string; main: boolean }[]>> = {
 
     gym: {
@@ -141,7 +137,6 @@ export class Onboarding {
   };
 
 
-  // Selecciona un AI Coach
   selectCoach(coach: string) {
     this.selectedCoach = coach;
     this.planGenerated = false;
@@ -149,7 +144,7 @@ export class Onboarding {
   }
 
 
-  // Genera el plan
+  // Valida el perfil y genera la rutina
   generatePlan() {
 
     if (
@@ -170,7 +165,6 @@ export class Onboarding {
       return;
     }
 
-    // Crea la rutina
     this.trainingPlan = this.buildPlan();
 
     this.formMessage = 'Your training plan is ready.';
@@ -181,13 +175,14 @@ export class Onboarding {
   // Construye la rutina semanal
   buildPlan() {
 
+    // ! indica que trainingDays ya no es null
     const days = this.getDayNames(this.trainingDays!);
 
     const exerciseLimit = this.getExerciseLimit();
 
+    // map transforma cada día en un día con ejercicios
     return days.map((dayName, dayIndex) => {
 
-      // Decide qué grupos entrenar
       const categories =
         this.getCategories(dayName).slice(0, exerciseLimit);
 
@@ -195,14 +190,14 @@ export class Onboarding {
 
       const exercises = categories.map((category) => {
 
-        // Cuenta ejercicios del mismo grupo
+        // Cuenta ejercicios usados de cada grupo
         categoryCounter[category] =
           (categoryCounter[category] || 0) + 1;
 
         const exercisePool =
           this.exerciseLibrary[this.equipment][category];
 
-        // Cambia ejercicios entre días
+        // Cambia los ejercicios entre días
         const exerciseIndex =
           (dayIndex + categoryCounter[category] - 1)
           % exercisePool.length;
@@ -226,7 +221,7 @@ export class Onboarding {
   }
 
 
-  // Decide los días de entrenamiento
+  // Asigna los días según la disponibilidad
   getDayNames(days: number) {
 
     if (days === 1) {
@@ -269,7 +264,7 @@ export class Onboarding {
   }
 
 
-  // Decide los grupos de cada día
+  // Decide qué grupos se entrenan cada día
   getCategories(dayName: string) {
 
     if (dayName.includes('PUSH')) {
@@ -292,12 +287,11 @@ export class Onboarding {
       return ['legs', 'legs', 'legs', 'legs', 'core', 'legs', 'core'];
     }
 
-    // Full Body
     return ['legs', 'push', 'pull', 'legs', 'push', 'pull', 'core'];
   }
 
 
-  // Ajusta ejercicios según duración
+  // Ajusta el número de ejercicios a la duración
   getExerciseLimit() {
 
     if (this.duration === '30') {
@@ -316,7 +310,7 @@ export class Onboarding {
   }
 
 
-  // Ajusta las series según experiencia
+  // Ajusta las series a la experiencia
   getSets(mainExercise: boolean) {
 
     if (this.experience === 'beginner') {
@@ -331,7 +325,7 @@ export class Onboarding {
   }
 
 
-  // Ajusta repeticiones según coach
+  // El coach determina el rango de repeticiones
   getReps(mainExercise: boolean) {
 
     if (this.selectedCoach === 'Ares') {
@@ -346,7 +340,7 @@ export class Onboarding {
   }
 
 
-  // Ajusta descansos según coach
+  // El coach determina los descansos
   getRest(mainExercise: boolean) {
 
     if (this.selectedCoach === 'Ares') {

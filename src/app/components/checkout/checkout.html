@@ -1,9 +1,7 @@
-<!-- Pantalla de pago -->
 <section class="checkout">
 
   <div class="checkout-card">
 
-    <!-- Título -->
     <p class="checkout-label">
       CHECKOUT
     </p>
@@ -13,7 +11,7 @@
     </h2>
 
 
-    <!-- Plan seleccionado -->
+    <!-- Datos recibidos desde App -->
     <div class="plan-summary">
 
       <p>
@@ -31,7 +29,6 @@
     </div>
 
 
-    <!-- Datos de pago -->
     <div class="payment-form">
 
       <label for="cardName">
@@ -97,17 +94,14 @@
     </div>
 
 
-    <!-- Mensaje del pago -->
     @if (paymentMessage) {
-
       <p class="payment-message">
         {{ paymentMessage }}
       </p>
-
     }
 
 
-    <!-- Aviso de demo -->
+    <!-- Aclara que no existe un pago real -->
     <p class="demo-message">
       Demo checkout — no real payment will be processed.
     </p>

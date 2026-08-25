@@ -7,7 +7,6 @@
   box-sizing: border-box;
 }
 
-/* Tarjeta principal */
 .auth-card {
   max-width: 600px;
   margin: 0 auto;
@@ -15,14 +14,12 @@
   background-color: #111111;
 }
 
-/* Etiqueta */
 .auth-label {
   color: #b87333;
   font-weight: bold;
   letter-spacing: 2px;
 }
 
-/* Grupo de formulario */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -30,7 +27,6 @@
   margin-bottom: 18px;
 }
 
-/* Campos */
 .form-group input {
   padding: 14px;
   background-color: #181818;
@@ -39,7 +35,6 @@
   font-size: 1rem;
 }
 
-/* Botones */
 .auth-card button {
   padding: 12px 24px;
   background-color: #b87333;
@@ -49,7 +44,6 @@
   cursor: pointer;
 }
 
-/* Color al pasar el ratón */
 .auth-card button:hover {
   background-color: #9a5f2a;
 }
@@ -64,23 +58,19 @@
 /* Móvil */
 @media (max-width: 800px) {
 
-  /* Reduce el espacio */
   .auth {
     padding: 50px 20px;
   }
 
-  /* Reduce la tarjeta */
   .auth-card {
     padding: 24px;
   }
 
-  /* Campos ocupan todo el ancho */
   .form-group input {
     width: 100%;
     box-sizing: border-box;
   }
 
-  /* Botones ocupan todo el ancho */
   .auth-card button {
     width: 100%;
   }

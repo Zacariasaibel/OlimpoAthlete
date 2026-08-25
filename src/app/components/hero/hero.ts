@@ -1,4 +1,3 @@
-// Herramientas de Angular para crear el componente y enviar eventos
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -10,10 +9,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 export class Hero {
 
-  // Output = avisa al padre de que el usuario quiere entrar
+  // Avisa a App para abrir Login/Register
   @Output() authRequested = new EventEmitter<void>();
 
-  // Envía el evento al componente padre
   requestAuth() {
     this.authRequested.emit();
   }

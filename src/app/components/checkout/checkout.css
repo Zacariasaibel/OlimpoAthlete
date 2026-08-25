@@ -7,7 +7,6 @@
   box-sizing: border-box;
 }
 
-/* Tarjeta principal */
 .checkout-card {
   max-width: 650px;
   margin: 0 auto;
@@ -15,14 +14,12 @@
   background-color: #111111;
 }
 
-/* Etiqueta */
 .checkout-label {
   color: #b87333;
   font-weight: bold;
   letter-spacing: 2px;
 }
 
-/* Resumen del plan */
 .plan-summary {
   margin: 30px 0;
   padding: 24px;
@@ -30,21 +27,18 @@
   border-left: 3px solid #b87333;
 }
 
-/* Precio */
 .price {
   color: #b87333;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Formulario */
 .payment-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Campos */
 .payment-form input {
   width: 100%;
   padding: 14px;
@@ -54,13 +48,12 @@
   box-sizing: border-box;
 }
 
-/* Fila Expiry + CVV */
+/* Expiry y CVV en una fila */
 .payment-row {
   display: flex;
   gap: 20px;
 }
 
-/* Columnas de pago */
 .payment-row div {
   flex: 1;
   display: flex;
@@ -68,7 +61,6 @@
   gap: 12px;
 }
 
-/* Botón */
 .payment-form button {
   margin-top: 20px;
   padding: 14px 28px;
@@ -79,7 +71,6 @@
   cursor: pointer;
 }
 
-/* Mensaje del pago */
 .payment-message {
   margin-top: 24px;
   padding: 14px;
@@ -88,7 +79,6 @@
   color: #cccccc;
 }
 
-/* Aviso de demo */
 .demo-message {
   margin-top: 24px;
   color: #999999;
@@ -98,22 +88,19 @@
 /* Móvil */
 @media (max-width: 800px) {
 
-  /* Reduce el espacio */
   .checkout {
     padding: 50px 20px;
   }
 
-  /* Reduce la tarjeta */
   .checkout-card {
     padding: 24px;
   }
 
-  /* Coloca Expiry y CVV en vertical */
+  /* Expiry y CVV pasan a vertical */
   .payment-row {
     flex-direction: column;
   }
 
-  /* Botón ocupa todo el ancho */
   .payment-form button {
     width: 100%;
   }

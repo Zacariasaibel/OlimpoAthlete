@@ -1,7 +1,5 @@
-// Herramienta principal para crear componentes Angular
 import { Component } from '@angular/core';
 
-// Componentes de nuestra aplicación
 import { Navbar } from './components/navbar/navbar';
 import { Hero } from './components/hero/hero';
 import { Programs } from './components/programs/programs';
@@ -12,13 +10,8 @@ import { Auth } from './components/auth/auth';
 import { HowItWorks } from './components/how-it-works/how-it-works';
 import { Checkout } from './components/checkout/checkout';
 
-
 @Component({
-
-  // Nombre del componente principal
   selector: 'app-root',
-
-  // Componentes que App puede utilizar
   imports: [
     Navbar,
     Hero,
@@ -30,22 +23,14 @@ import { Checkout } from './components/checkout/checkout';
     HowItWorks,
     Checkout
   ],
-
-  // HTML y CSS de App
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 
-
 export class App {
 
-  // false = Login oculto / true = Login visible
   showAuth = false;
-
-  // false = Profile oculto / true = Profile visible
   showOnboarding = false;
-
-  // false = Checkout oculto / true = Checkout visible
   showCheckout = false;
 
   // Guarda si el usuario ha iniciado sesión
@@ -55,11 +40,10 @@ export class App {
   selectedPlanName = '';
   selectedPlanPrice = '';
 
-  // Decide si después del Login abre Checkout
+  // Decide el destino después del Login
   checkoutAfterLogin = false;
 
 
-  // Abre Login/Register
   openAuth() {
     this.showAuth = true;
     this.showOnboarding = false;
@@ -68,7 +52,6 @@ export class App {
   }
 
 
-  // Vuelve a la Landing Page
   goHome() {
     this.showAuth = false;
     this.showOnboarding = false;
@@ -82,38 +65,28 @@ export class App {
   }
 
 
-  // Se ejecuta cuando Login/Register es correcto
+  // Decide qué pantalla abrir después del Login
   handleAuthSuccess() {
-
-    // Guarda el estado del login
     this.isLoggedIn = true;
-
-    // Oculta Login/Register
     this.showAuth = false;
 
-    // Abre Checkout si eligió un plan de pago
     if (this.checkoutAfterLogin) {
       this.showCheckout = true;
       this.showOnboarding = false;
     } else {
-
-      // Muestra Coach/Profile
       this.showCheckout = false;
       this.showOnboarding = true;
     }
   }
 
 
-  // Recibe el plan seleccionado
+  // Recibe el plan seleccionado desde Membership
   handlePlanSelected(plan: { name: string; price: string }) {
-
-    // Guarda el plan
     this.selectedPlanName = plan.name;
     this.selectedPlanPrice = plan.price;
 
-    // Plan gratuito
+    // Warrior no necesita Checkout
     if (plan.name === 'Warrior') {
-
       this.checkoutAfterLogin = false;
 
       if (this.isLoggedIn) {
@@ -129,8 +102,7 @@ export class App {
       return;
     }
 
-
-    // Plan de pago
+    // Los planes de pago pasan por Checkout
     this.checkoutAfterLogin = true;
 
     if (this.isLoggedIn) {

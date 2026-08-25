@@ -1,14 +1,11 @@
-<!-- Navbar siempre visible -->
 <app-navbar
   (authRequested)="openAuth()"
   (homeRequested)="goHome()"
 ></app-navbar>
 
 
-<!-- LOGIN / REGISTER -->
 @if (showAuth) {
 
-  <!-- authSuccess avisa cuando el usuario entra correctamente -->
   <app-auth
     (authSuccess)="handleAuthSuccess()"
   ></app-auth>
@@ -16,10 +13,9 @@
 }
 
 
-<!-- CHECKOUT -->
 @else if (showCheckout) {
 
-  <!-- Envía el plan seleccionado a Checkout -->
+  <!-- App envía nombre y precio al Checkout -->
   <app-checkout
     [planName]="selectedPlanName"
     [planPrice]="selectedPlanPrice"
@@ -28,7 +24,6 @@
 }
 
 
-<!-- CREATE PROFILE -->
 @else if (showOnboarding) {
 
   <app-onboarding></app-onboarding>
@@ -36,7 +31,6 @@
 }
 
 
-<!-- LANDING PAGE -->
 @else {
 
   <app-hero
@@ -45,7 +39,7 @@
 
   <app-programs></app-programs>
 
-  <!-- Recibe el plan seleccionado -->
+  <!-- App recibe el plan seleccionado -->
   <app-membership
     (planSelected)="handlePlanSelected($event)"
   ></app-membership>

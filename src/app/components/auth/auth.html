@@ -1,11 +1,8 @@
-<!-- Sección de autenticación -->
 <section class="auth">
 
-  <!-- Tarjeta principal -->
   <div class="auth-card">
 
-
-    <!-- REGISTRO -->
+    <!-- ngSubmit ejecuta register() al enviar el formulario -->
     <form (ngSubmit)="register()">
 
       <p class="auth-label">
@@ -16,15 +13,13 @@
         Join OlimpoAthlete
       </h2>
 
-
-      <!-- Campo nombre -->
       <div class="form-group">
 
         <label for="name">
           Name
         </label>
 
-        <!-- ngModel conecta input ↔ variable name -->
+        <!-- ngModel conecta el input con la variable de TypeScript -->
         <input
           id="name"
           name="name"
@@ -35,8 +30,6 @@
 
       </div>
 
-
-      <!-- Campo email -->
       <div class="form-group">
 
         <label for="email">
@@ -53,8 +46,6 @@
 
       </div>
 
-
-      <!-- Campo contraseña -->
       <div class="form-group">
 
         <label for="password">
@@ -71,27 +62,19 @@
 
       </div>
 
-
-      <!-- Ejecuta register() -->
       <button type="submit">
         CREATE ACCOUNT
       </button>
 
-
-      <!-- Muestra mensaje si existe -->
       @if (registerMessage) {
-
         <p>
           {{ registerMessage }}
         </p>
-
       }
 
     </form>
 
 
-
-    <!-- LOGIN -->
     <form
       class="login-section"
       (ngSubmit)="login()"
@@ -105,8 +88,6 @@
         Welcome back
       </h2>
 
-
-      <!-- Email del login -->
       <div class="form-group">
 
         <label for="loginEmail">
@@ -123,8 +104,6 @@
 
       </div>
 
-
-      <!-- Contraseña del login -->
       <div class="form-group">
 
         <label for="loginPassword">
@@ -141,20 +120,14 @@
 
       </div>
 
-
-      <!-- Ejecuta login() -->
       <button type="submit">
         LOGIN
       </button>
 
-
-      <!-- Muestra resultado del login -->
       @if (loginMessage) {
-
         <p>
           {{ loginMessage }}
         </p>
-
       }
 
     </form>

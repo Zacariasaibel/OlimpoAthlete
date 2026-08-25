@@ -1,4 +1,3 @@
-// Herramientas de Angular para crear el componente y enviar eventos
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -10,10 +9,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 export class Navbar {
 
-  // Output = envía un evento desde Navbar hacia su componente padre
+  // Avisa a App para abrir Login/Register
   @Output() authRequested = new EventEmitter<void>();
 
-  // Avisa al padre de que el usuario quiere entrar/registrarse
   requestAuth() {
     this.authRequested.emit();
   }
@@ -21,12 +19,10 @@ export class Navbar {
   // Avisa a App para volver al inicio
   @Output() homeRequested = new EventEmitter<void>();
 
-  // Vuelve a la Landing Page
   requestHome() {
     this.homeRequested.emit();
   }
 
-  // Desplaza la página hasta una sección
   scrollTo(sectionId: string) {
     document
       .getElementById(sectionId)

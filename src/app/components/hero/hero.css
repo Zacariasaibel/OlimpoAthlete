@@ -1,4 +1,3 @@
-/* Sección Hero */
 .hero {
   position: relative;
   display: flex;
@@ -9,7 +8,7 @@
   box-sizing: border-box;
   overflow: hidden;
 
-  /* Imagen integrada con degradado */
+  /* Integra la imagen con un degradado oscuro */
   background:
     linear-gradient(
       90deg,
@@ -26,14 +25,12 @@
   background-repeat: no-repeat;
 }
 
-/* Contenido de texto */
 .hero-content {
   position: relative;
   z-index: 1;
   max-width: 700px;
 }
 
-/* Nombre de la app */
 .hero-label {
   color: #b87333;
   font-weight: bold;
@@ -41,14 +38,12 @@
   margin-bottom: 16px;
 }
 
-/* Título principal */
 .hero h1 {
   font-size: 4rem;
   line-height: 1.1;
   margin: 0 0 24px;
 }
 
-/* Descripción */
 .hero-description {
   max-width: 600px;
   font-size: 1.1rem;
@@ -57,7 +52,6 @@
   color: #cccccc;
 }
 
-/* Botón principal */
 .hero-button {
   padding: 16px 32px;
   background-color: #b87333;
@@ -68,7 +62,6 @@
   transition: 0.3s;
 }
 
-/* Efecto del botón */
 .hero-button:hover {
   background-color: #d08a45;
   transform: translateY(-2px);
@@ -93,7 +86,7 @@
     min-height: 70vh;
     padding: 60px 30px;
 
-    /* Oscurece más la imagen para leer el texto */
+    /* Oscurece más la imagen para mantener el texto legible */
     background:
       linear-gradient(
         rgba(24, 24, 24, 0.8),

@@ -1,4 +1,3 @@
-// Herramientas de Angular
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -10,16 +9,14 @@ import { Component, Input } from '@angular/core';
 
 export class Checkout {
 
-  // Recibe el plan seleccionado
+  // Recibe el plan seleccionado desde App
   @Input() planName = '';
 
-  // Recibe el precio del plan
+  // Recibe el precio seleccionado desde App
   @Input() planPrice = '';
 
-  // Mensaje del pago
   paymentMessage = '';
 
-  // Simula el pago
   completePayment() {
     this.paymentMessage =
       `Payment successful. Your ${this.planName} plan is now active.`;

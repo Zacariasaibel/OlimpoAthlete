@@ -1,6 +1,5 @@
 <section class="onboarding">
 
-  <!-- Selección de coach -->
   <div class="onboarding-header">
 
     <p class="onboarding-label">
@@ -18,10 +17,9 @@
   </div>
 
 
-  <!-- Lista de coaches -->
   <div class="coach-list">
 
-    <!-- Coach de fuerza -->
+    <!-- selected se activa según el coach elegido -->
     <article
       class="coach-card"
       [class.selected]="selectedCoach === 'Ares'"
@@ -31,7 +29,6 @@
       <p>Strength Coach</p>
     </article>
 
-    <!-- Coach de hipertrofia -->
     <article
       class="coach-card"
       [class.selected]="selectedCoach === 'Hercules'"
@@ -41,7 +38,6 @@
       <p>Hypertrophy Coach</p>
     </article>
 
-    <!-- Coach de rendimiento -->
     <article
       class="coach-card"
       [class.selected]="selectedCoach === 'Athena'"
@@ -54,7 +50,7 @@
   </div>
 
 
-  <!-- Muestra el perfil después de escoger coach -->
+  <!-- El perfil aparece después de elegir coach -->
   @if (selectedCoach) {
 
     <div class="onboarding-header">
@@ -74,16 +70,15 @@
     </div>
 
 
-    <!-- Formulario -->
     <form class="onboarding-form">
 
-      <!-- Experiencia -->
       <div class="form-group">
 
         <label for="experience">
           Training experience
         </label>
 
+        <!-- ngModel conecta el campo con TypeScript -->
         <select
           id="experience"
           name="experience"
@@ -98,7 +93,6 @@
       </div>
 
 
-      <!-- Días -->
       <div class="form-group">
 
         <label for="days">
@@ -118,7 +112,6 @@
       </div>
 
 
-      <!-- Duración -->
       <div class="form-group">
 
         <label for="duration">
@@ -140,7 +133,6 @@
       </div>
 
 
-      <!-- Equipamiento -->
       <div class="form-group">
 
         <label for="equipment">
@@ -161,7 +153,6 @@
       </div>
 
 
-      <!-- Genera el plan -->
       <button
         type="button"
         class="generate-button"
@@ -171,17 +162,13 @@
       </button>
 
 
-      <!-- Mensaje -->
       @if (formMessage) {
-
         <p class="form-message">
           {{ formMessage }}
         </p>
-
       }
 
 
-      <!-- Plan generado -->
       @if (planGenerated) {
 
         <div class="generated-plan">
@@ -202,7 +189,7 @@
           </p>
 
 
-          <!-- Días de entrenamiento -->
+          <!-- Recorre los días de la rutina -->
           @for (day of trainingPlan; track day.name) {
 
             <article class="exercise-card">
@@ -212,7 +199,7 @@
               </h4>
 
 
-              <!-- Ejercicios -->
+              <!-- Recorre los ejercicios de cada día -->
               @for (exercise of day.exercises; track exercise.name) {
 
                 <div class="exercise-item">
@@ -224,14 +211,10 @@
 
                     —
                     {{ exercise.sets }} × {{ exercise.reps }}
-
                     · Rest {{ exercise.rest }}
                   </p>
 
-
-                  <!-- Explicación del ejercicio -->
                   <details>
-
                     <summary>
                       How to perform
                     </summary>
@@ -239,7 +222,6 @@
                     <p>
                       {{ exercise.instructions }}
                     </p>
-
                   </details>
 
                 </div>
@@ -258,4 +240,4 @@
 
   }
 
-</section>,
+</section>

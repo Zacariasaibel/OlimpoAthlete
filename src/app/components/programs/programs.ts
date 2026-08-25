@@ -1,15 +1,14 @@
+// Herramienta principal para crear componentes Angular
 import { Component } from '@angular/core';
 
+// Configura el componente Programs
 @Component({
   selector: 'app-programs',
   imports: [],
   templateUrl: './programs.html',
   styleUrl: './programs.css',
 })
-export class Programs {
-  selectedGoal = '';
 
-  selectGoal(goal: string) {
-    this.selectedGoal = goal;
-  }
+// Lógica de Programs
+export class Programs {
 }

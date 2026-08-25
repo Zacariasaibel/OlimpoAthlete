@@ -1,4 +1,3 @@
-// Herramientas de Angular
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -16,7 +15,6 @@ export class Membership {
     price: string;
   }>();
 
-  // Selecciona un plan
   choosePlan(name: string, price: string) {
     this.planSelected.emit({
       name: name,

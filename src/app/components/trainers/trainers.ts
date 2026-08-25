@@ -6,25 +6,21 @@ import { Component } from '@angular/core';
   templateUrl: './trainers.html',
   styleUrl: './trainers.css',
 })
+
 export class Trainers {
+
   trainers = [
-  {
-    name: 'Ares',
-    specialty: 'Strength AI Coach'
-  },
-  {
-    name: 'Athena',
-    specialty: 'Performance AI Coach'
-  },
-  {
-    name: 'Hercules',
-    specialty: 'Hypertrophy AI Coach'
-  }
-];
-selectedCoach = '';
-
-selectCoach(name: string) {
-  this.selectedCoach = name;
+    {
+      name: 'Ares',
+      specialty: 'Strength AI Coach'
+    },
+    {
+      name: 'Hercules',
+      specialty: 'Hypertrophy AI Coach'
+    },
+    {
+      name: 'Athena',
+      specialty: 'Performance AI Coach'
+    }
+  ];
 }
-}
-

@@ -15,7 +15,8 @@
     </h2>
 
     <p class="programs-description">
-      Choose your main goal so your AI Coach can build a training plan around it.
+      Each AI Coach specializes in a different training goal.
+      Choose your coach after creating your account.
     </p>
   </div>
 
@@ -24,11 +25,7 @@
   <div class="programs-list">
 
     <!-- Objetivo Strength -->
-    <article
-      class="program-card"
-      [class.selected]="selectedGoal === 'Strength'"
-      (click)="selectGoal('Strength')"
-    >
+    <article class="program-card">
       <h3>Strength</h3>
 
       <p>
@@ -38,11 +35,7 @@
 
 
     <!-- Objetivo Hypertrophy -->
-    <article
-      class="program-card"
-      [class.selected]="selectedGoal === 'Hypertrophy'"
-      (click)="selectGoal('Hypertrophy')"
-    >
+    <article class="program-card">
       <h3>Hypertrophy</h3>
 
       <p>
@@ -51,13 +44,9 @@
     </article>
 
 
-    <!-- Objetivo Conditioning -->
-    <article
-      class="program-card"
-      [class.selected]="selectedGoal === 'Conditioning'"
-      (click)="selectGoal('Conditioning')"
-    >
-      <h3>Conditioning</h3>
+    <!-- Objetivo Performance -->
+    <article class="program-card">
+      <h3>Performance</h3>
 
       <p>
         Improve endurance, work capacity and overall athletic performance.
@@ -65,13 +54,5 @@
     </article>
 
   </div>
-
-
-  <!-- Muestra el objetivo seleccionado -->
-  @if (selectedGoal) {
-    <p>
-      Selected goal: {{ selectedGoal }}
-    </p>
-  }
 
 </section>
