@@ -16,6 +16,13 @@ describe('Navbar', () => {
     await fixture.whenStable();
   });
 
+  it('requests the landing page before scrolling to a section', () => {
+    const home = vi.fn();
+    component.homeRequested.subscribe(home);
+    component.scrollTo('plans');
+    expect(home).toHaveBeenCalledOnce();
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

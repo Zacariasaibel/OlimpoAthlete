@@ -20,8 +20,6 @@ export class Onboarding {
   formMessage = '';
   planGenerated = false;
 
-
-  // Guarda la rutina generada
   trainingPlan: {
     name: string;
     exercises: {
@@ -33,8 +31,6 @@ export class Onboarding {
     }[];
   }[] = [];
 
-
-  // Ejercicios organizados por equipamiento y grupo muscular
   exerciseLibrary: Record<string, Record<string, { name: string; main: boolean }[]>> = {
 
     gym: {
@@ -143,8 +139,6 @@ export class Onboarding {
     this.formMessage = '';
   }
 
-
-  // Valida el perfil y genera la rutina
   generatePlan() {
 
     if (
@@ -159,8 +153,8 @@ export class Onboarding {
       return;
     }
 
-    if (this.trainingDays < 1 || this.trainingDays > 5) {
-      this.formMessage = 'Choose between 1 and 5 training days.';
+    if (!Number.isInteger(this.trainingDays) || this.trainingDays < 1 || this.trainingDays > 5) {
+      this.formMessage = 'Choose a whole number between 1 and 5 training days.';
       this.planGenerated = false;
       return;
     }
@@ -171,16 +165,12 @@ export class Onboarding {
     this.planGenerated = true;
   }
 
-
-  // Construye la rutina semanal
   buildPlan() {
 
-    // ! indica que trainingDays ya no es null
     const days = this.getDayNames(this.trainingDays!);
 
     const exerciseLimit = this.getExerciseLimit();
 
-    // map transforma cada día en un día con ejercicios
     return days.map((dayName, dayIndex) => {
 
       const categories =
@@ -190,14 +180,12 @@ export class Onboarding {
 
       const exercises = categories.map((category) => {
 
-        // Cuenta ejercicios usados de cada grupo
         categoryCounter[category] =
           (categoryCounter[category] || 0) + 1;
 
         const exercisePool =
           this.exerciseLibrary[this.equipment][category];
 
-        // Cambia los ejercicios entre días
         const exerciseIndex =
           (dayIndex + categoryCounter[category] - 1)
           % exercisePool.length;
@@ -220,8 +208,6 @@ export class Onboarding {
     });
   }
 
-
-  // Asigna los días según la disponibilidad
   getDayNames(days: number) {
 
     if (days === 1) {
@@ -263,8 +249,6 @@ export class Onboarding {
     ];
   }
 
-
-  // Decide qué grupos se entrenan cada día
   getCategories(dayName: string) {
 
     if (dayName.includes('PUSH')) {
@@ -290,8 +274,6 @@ export class Onboarding {
     return ['legs', 'push', 'pull', 'legs', 'push', 'pull', 'core'];
   }
 
-
-  // Ajusta el número de ejercicios a la duración
   getExerciseLimit() {
 
     if (this.duration === '30') {
@@ -309,8 +291,6 @@ export class Onboarding {
     return 7;
   }
 
-
-  // Ajusta las series a la experiencia
   getSets(mainExercise: boolean) {
 
     if (this.experience === 'beginner') {
@@ -324,8 +304,6 @@ export class Onboarding {
     return 3;
   }
 
-
-  // El coach determina el rango de repeticiones
   getReps(mainExercise: boolean) {
 
     if (this.selectedCoach === 'Ares') {
@@ -339,8 +317,6 @@ export class Onboarding {
     return mainExercise ? '6-8' : '10-15';
   }
 
-
-  // El coach determina los descansos
   getRest(mainExercise: boolean) {
 
     if (this.selectedCoach === 'Ares') {
@@ -354,8 +330,6 @@ export class Onboarding {
     return mainExercise ? '90 sec' : '45-75 sec';
   }
 
-
-  // Devuelve la explicación del ejercicio
   getInstructions(exerciseName: string) {
 
     const instructions: Record<string, string> = {

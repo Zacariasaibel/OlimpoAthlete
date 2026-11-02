@@ -6,9 +6,9 @@
       AI COACH
     </p>
 
-    <h2>
+    <h1>
       Choose your coach
-    </h2>
+    </h1>
 
     <p class="onboarding-description">
       Choose the training focus that best matches your goal.
@@ -18,39 +18,40 @@
 
 
   <div class="coach-list">
-
-    <!-- selected se activa según el coach elegido -->
-    <article
+    <button
+      type="button"
       class="coach-card"
       [class.selected]="selectedCoach === 'Ares'"
+      [attr.aria-pressed]="selectedCoach === 'Ares'"
       (click)="selectCoach('Ares')"
     >
-      <h3>Ares</h3>
+      <h2>Ares</h2>
       <p>Strength Coach</p>
-    </article>
+    </button>
 
-    <article
+    <button
+      type="button"
       class="coach-card"
       [class.selected]="selectedCoach === 'Hercules'"
+      [attr.aria-pressed]="selectedCoach === 'Hercules'"
       (click)="selectCoach('Hercules')"
     >
-      <h3>Hercules</h3>
+      <h2>Hercules</h2>
       <p>Hypertrophy Coach</p>
-    </article>
+    </button>
 
-    <article
+    <button
+      type="button"
       class="coach-card"
       [class.selected]="selectedCoach === 'Athena'"
+      [attr.aria-pressed]="selectedCoach === 'Athena'"
       (click)="selectCoach('Athena')"
     >
-      <h3>Athena</h3>
+      <h2>Athena</h2>
       <p>Performance Coach</p>
-    </article>
+    </button>
 
   </div>
-
-
-  <!-- El perfil aparece después de elegir coach -->
   @if (selectedCoach) {
 
     <div class="onboarding-header">
@@ -77,12 +78,11 @@
         <label for="experience">
           Training experience
         </label>
-
-        <!-- ngModel conecta el campo con TypeScript -->
         <select
           id="experience"
           name="experience"
           [(ngModel)]="experience"
+          (ngModelChange)="planGenerated = false"
         >
           <option value="">Select your level</option>
           <option value="beginner">Beginner</option>
@@ -107,6 +107,7 @@
           max="5"
           placeholder="e.g. 4"
           [(ngModel)]="trainingDays"
+          (ngModelChange)="planGenerated = false"
         >
 
       </div>
@@ -122,6 +123,7 @@
           id="duration"
           name="duration"
           [(ngModel)]="duration"
+          (ngModelChange)="planGenerated = false"
         >
           <option value="">Select duration</option>
           <option value="30">30 minutes</option>
@@ -143,6 +145,7 @@
           id="equipment"
           name="equipment"
           [(ngModel)]="equipment"
+          (ngModelChange)="planGenerated = false"
         >
           <option value="">Select equipment</option>
           <option value="gym">Full gym</option>
@@ -187,9 +190,6 @@
             {{ experience }} ·
             {{ equipment }}
           </p>
-
-
-          <!-- Recorre los días de la rutina -->
           @for (day of trainingPlan; track day.name) {
 
             <article class="exercise-card">
@@ -197,9 +197,6 @@
               <h4>
                 {{ day.name }}
               </h4>
-
-
-              <!-- Recorre los ejercicios de cada día -->
               @for (exercise of day.exercises; track exercise.name) {
 
                 <div class="exercise-item">

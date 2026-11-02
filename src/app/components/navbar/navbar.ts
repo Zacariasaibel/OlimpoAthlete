@@ -9,14 +9,12 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 export class Navbar {
 
-  // Avisa a App para abrir Login/Register
   @Output() authRequested = new EventEmitter<void>();
 
   requestAuth() {
     this.authRequested.emit();
   }
 
-  // Avisa a App para volver al inicio
   @Output() homeRequested = new EventEmitter<void>();
 
   requestHome() {
@@ -24,8 +22,9 @@ export class Navbar {
   }
 
   scrollTo(sectionId: string) {
-    document
-      .getElementById(sectionId)
-      ?.scrollIntoView({ behavior: 'smooth' });
+    this.homeRequested.emit();
+    setTimeout(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    });
   }
 }

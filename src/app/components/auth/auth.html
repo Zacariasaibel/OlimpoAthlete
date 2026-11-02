@@ -1,25 +1,23 @@
 <section class="auth">
 
-  <div class="auth-card">
+  <p class="demo-notice">Frontend demo: use fictional details and a made-up password. Data stays in this browser.</p>
 
-    <!-- ngSubmit ejecuta register() al enviar el formulario -->
+  <div class="auth-card">
     <form (ngSubmit)="register()">
 
       <p class="auth-label">
         CREATE ACCOUNT
       </p>
 
-      <h2>
+      <h1>
         Join OlimpoAthlete
-      </h2>
+      </h1>
 
       <div class="form-group">
 
         <label for="name">
           Name
         </label>
-
-        <!-- ngModel conecta el input con la variable de TypeScript -->
         <input
           id="name"
           name="name"

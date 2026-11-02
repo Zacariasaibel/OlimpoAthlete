@@ -72,3 +72,4 @@
     font-size: 0.8rem;
   }
 }
+button.logo { color: inherit; background: none; border: 0; padding: 0; font-family: inherit; text-align: left; }

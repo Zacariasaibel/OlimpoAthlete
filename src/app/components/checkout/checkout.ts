@@ -9,16 +9,14 @@ import { Component, Input } from '@angular/core';
 
 export class Checkout {
 
-  // Recibe el plan seleccionado desde App
   @Input() planName = '';
 
-  // Recibe el precio seleccionado desde App
   @Input() planPrice = '';
 
   paymentMessage = '';
 
   completePayment() {
     this.paymentMessage =
-      `Payment successful. Your ${this.planName} plan is now active.`;
+      `Demo complete. Your ${this.planName} selection was simulated. No payment was processed.`;
   }
 }
