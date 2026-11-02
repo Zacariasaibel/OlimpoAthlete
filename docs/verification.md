@@ -27,3 +27,10 @@ Redundante Lernkommentare in den geänderten Logikdateien wurden entfernt. Die �
 - `src/app/app.ts`: Die drei Ansichts-Flags bei neuen Ansichten durch einen eindeutigen View-Zustand ersetzen. Echtes Routing erst einführen, wenn teilbare Plan-URLs und Persistenz tatsächlich benötigt werden.
 
 Die öffentliche Nachprüfung des veröffentlichten Builds wird im abschließenden Aufgabenbericht getrennt festgehalten.
+
+
+## Hero-Bild unter GitHub Pages
+
+Die abschließende Prüfung der Bildanfragen fand einen reproduzierbaren 404: Das CSS verwies auf `/images/hero-athlete.png` außerhalb von `/OlimpoAthlete/`. Beide Referenzen nutzen jetzt eine lokale Ressource, die Angular beim Build verarbeitet. Das gleiche Bild funktioniert damit auch unter der veröffentlichten Unteradresse.
+
+Der erneute Build ist erfolgreich. Chrome hat das erzeugte Bild unter `/OlimpoAthlete/media/hero-athlete-6T33Z4CP.png` mit HTTP 200 und 1672 × 941 Pixeln geladen. axe-core 4.14.0 meldete mit dem tatsächlich geladenen Hintergrund bei 1440 und 390 Pixeln keine Verstöße. Für diese reine CSS-Pfadkorrektur wurde die unveränderte Trainingslogik nicht erneut vollständig getestet.
