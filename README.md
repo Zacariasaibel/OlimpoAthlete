@@ -1,18 +1,33 @@
 # OlimpoAthlete
 
-Frontend-Prototyp für regelbasierte Trainingspläne. Nach einer simulierten Registrierung wählst du Ares, Hercules oder Athena. Erfahrung, verfügbare Tage, Trainingsdauer und Ausstattung bestimmen den Wochenplan mit Übungen, Sätzen, Wiederholungen und Pausen.
+[Live-Demo ausprobieren](https://zacariasaibel.github.io/OlimpoAthlete/)
 
-[Live-Demo öffnen](https://zacariasaibel.github.io/OlimpoAthlete/)
+Die Idee zu OlimpoAthlete entstand aus meinem Interesse am Krafttraining. Ein Trainingsplan soll zur eigenen Erfahrung, zur verfügbaren Zeit und zur Ausstattung passen.
 
-## Ausprobieren
+Ich wollte diese Angaben in einer Webanwendung zusammenführen und daraus einen einfachen Wochenplan erstellen. Die aktuelle Version zeigt diesen Ablauf als Frontend-Prototyp.
 
-„Get Started“ öffnen und fiktive Zugangsdaten eingeben. Einen Coach wählen, das Profil ausfüllen und den Plan erzeugen. Es gibt drei Ausstattungen: Fitnessstudio, Geräte zu Hause und Eigengewicht. Ein bis fünf ganze Trainingstage sind möglich.
+## So funktioniert die Anwendung
 
-Registrierung und Anmeldung werden ausschließlich mit Local Storage simuliert. Keine echten Passwörter eingeben. Es gibt kein Backend, keine echte KI und keine sicheren Benutzerkonten. Tarife und Checkout sind nur Demonstrationen; es werden weder Abos abgeschlossen noch Zahlungen verarbeitet.
+1. „Get Started“ öffnen und mit fiktiven Zugangsdaten eine Registrierung simulieren.
+2. Einen der drei Coaches wählen: Ares, Hercules oder Athena.
+3. Erfahrung, verfügbare Trainingstage, Trainingsdauer und Ausstattung angeben.
+4. Einen Wochenplan mit Übungen, Sätzen, Wiederholungen und Pausen erzeugen.
+
+Zur Auswahl stehen Fitnessstudio, Geräte zu Hause und Training mit dem eigenen Körpergewicht. Möglich sind ein bis fünf ganze Trainingstage pro Woche.
+
+Die Anwendung führt durch die einzelnen Entscheidungen und stellt die Übungen im Wochenplan zusammen. So lässt sich ausprobieren, wie unterschiedliche Angaben den Plan beeinflussen.
+
+## Technischer Aufbau
+
+Die Oberfläche wurde mit Angular, TypeScript, Angular Forms und CSS umgesetzt. Die Trainingspläne entstehen anhand festgelegter Regeln und hinterlegter Übungen. Es wird keine KI zur Planerstellung eingesetzt.
+
+Registrierung und Anmeldung werden mit Local Storage simuliert. Es gibt kein Backend und keine sicheren Benutzerkonten. Bitte ausschließlich fiktive Zugangsdaten und keine echten Passwörter verwenden.
+
+Tarife und Checkout dienen der Demonstration. Es werden keine Abonnements abgeschlossen oder Zahlungen verarbeitet.
 
 ## Lokal starten
 
-Angular 22, TypeScript, Angular Forms und CSS. Benötigt wird eine von Angular 22 unterstützte Node-Version, beispielsweise Node 24 ab 24.15.0.
+Das Projekt verwendet Angular 22. Benötigt wird eine unterstützte Node.js-Version, beispielsweise Node.js 24 ab Version 24.15.0.
 
 ```sh
 git clone https://github.com/Zacariasaibel/OlimpoAthlete.git
@@ -21,8 +36,26 @@ npm ci
 npm start
 ```
 
-Danach `http://localhost:4200/` öffnen. `npm test -- --watch=false` führt die Tests aus. `npm run build -- --base-href /OlimpoAthlete/` erstellt den GitHub-Pages-Build.
+Anschließend `http://localhost:4200/` öffnen.
 
-Die Anwendung wechselt ihre Ansichten innerhalb einer Seite. Es gibt keine eigenen URL-Routen für Anmeldung oder Trainingsplan. Beim Neuladen erscheint die Startseite; das fiktive Konto bleibt im Browser gespeichert. Die vorhandenen Abschnittslinks bleiben direkt erreichbar.
+## Prüfungen und Build
 
-[Prüfungen und technische Hinweise](docs/verification.md)
+Tests ausführen:
+
+```sh
+npm test -- --watch=false
+```
+
+Build für GitHub Pages erstellen:
+
+```sh
+npm run build -- --base-href /OlimpoAthlete/
+```
+
+Die dokumentierten Ergebnisse stehen unter [Prüfungen und technische Hinweise](docs/verification.md).
+
+## Aktuelle Grenzen
+
+Die Anwendung wechselt ihre Ansichten innerhalb einer Seite. Anmeldung und Trainingsplan haben keine eigenen URL-Routen.
+
+Beim Neuladen erscheint die Startseite. Das fiktive Konto bleibt im Browser gespeichert. Die vorhandenen Abschnittslinks sind direkt erreichbar.
